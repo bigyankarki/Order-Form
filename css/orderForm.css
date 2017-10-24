@@ -1,0 +1,29 @@
+body {
+  position: relative;
+  margin: auto;
+  display: block;
+  width: 600px;
+  height: 600px;
+  background-image: url("../images/flag.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.9;
+}
+
+#head {
+	margin-bottom: 3%;
+	text-align: center;
+	color: white;
+	background: #337AB7;
+	border-radius: 9px;
+}
+
+.footer {
+	margin-bottom: 3%;
+}
+
+
+.credit-card-div .small-font { font-size:9px; }
+.credit-card-div .pad-adjust { padding-top:10px; }

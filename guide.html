@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Entertainment Guide Order Form</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap Core -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <!-- CSS Core -->
+  <link rel="stylesheet" href="css/orderForm.css">
+</head>
+
+<body>
+
+<div id="head">
+	<h1> Order Form</h1>
+</div>
+
+<!-- ..............First Panel................. -->
+<form action="#" class="form-horizontal" id="productInfo" onsubmit="submitForm()">
+<div class="panel panel-primary">
+	<span class="panel-heading">Select a Product</span>
+		<div class="panel-body">
+			
+				<div class="form-group">
+				    <span class="control-label col-sm-2 text-muted small-font">Product:</span>
+				    <div class="col-sm-8">
+				      	<select class="form-control" id="product" name="selection" onchange="calculateTotal()" required>
+						    <option value="product1">Kathmandu Guides</option>
+						    <option value="product2">Kathmandu Guides With Map</option>
+						</select>
+				    </div>
+			  </div>
+			  <div class="form-group">
+				    <span class="control-label col-sm-2 text-muted small-font">Quantity: </span>
+				    <div class="col-sm-8">
+				      	<select class="form-control" id="quantity" onchange="calculateTotal()" required>
+						    <option value="one">1</option>
+						    <option value="two">2</option>
+						    <option value="three">3</option>
+						    <option value="four">4</option>
+						    <option value="five">5</option>
+						</select>
+				    </div>
+
+				    <div class="col-sm-2">
+				    	<input type="text" class="form-control" id="productTotal" readonly />
+				    </div>
+			  </div>
+
+			  <div class="form-group">
+			  		<span class="control-label col-sm-2 text-muted small-font">NJ Tax (6%) </span>
+			  		<div class="col-sm-8">
+				    </div>
+				    <div class="col-sm-2">
+				    	<input type="text" class="form-control" id="njTax" readonly />
+				    </div>
+			  </div>
+
+			  <div class="form-group">
+			  		<span class="control-label col-sm-2 text-muted small-font">Shipping: </span>
+			  		<div class="radio col-sm-8" onclick="calculateTotal()" id="radioButton">
+						<div class="radio">
+							<label><input type="radio" name="optradio" value="standard" required>Standard (3-5 days): $7.95</label>
+						</div>
+						<div class="radio">
+							<label><input type="radio" name="optradio" value="express">Express (2 days): $9.95</label>
+						</div>
+						<div class="radio">
+							<label><input type="radio" name="optradio" value="nextDay">Next Day: $12.95</label>
+						</div>
+					</div>
+					<div class="col-sm-2" >
+						<input type="text" class="form-control" id="shipping" readonly/>
+					</div>
+			  </div>
+
+			  <div class="form-group">
+				  <div class="col-sm-10">
+				  		<span class="control-label col-sm-2 text-muted small-font">Total </span>
+				  </div>
+				  <div class="col-sm-2" >
+				  		<input type="text" class="form-control" id="total" readonly/>
+				  </div>
+
+			  </div>
+
+		</div>
+</div>
+
+
+<!-- .......................Second Panel......................... -->
+<div class="panel panel-primary">
+	<span class="panel-heading">Shipping Address</span>
+		<div class="panel-body">
+				<div class="form-group">
+				    <span class="control-label col-sm-2 text-muted small-font">Name</span>
+				    <div class="col-sm-8">
+				      <input type="text" class="form-control" id="shipping_name" placeholder="Enter Your Name" required />
+				    </div>
+			  	</div>
+
+			  	<div class="form-group">
+				    <span class="control-label col-sm-2 text-muted small-font">Street: </span>
+				    <div class="col-sm-8" >
+				      <textarea class="form-control" rows="5" id="shipping_street" required></textarea>
+				    </div>
+				    <div class="col-sm-2"></div>
+			  	</div>
+
+			  	<div class="form-group">
+				    <span class="control-label col-sm-1 text-muted small-font">City:</span>
+				    <div class="col-sm-3" >
+				      <input type="text" class="form-control" id="shipping_city" required/>
+				    </div>
+				    <span class="control-label col-sm-1 text-muted small-font">State:</span>
+				    <div class="col-sm-3" >
+				      	<select class="form-control" id="shipping_state">
+							<option>AL<option>AK<option>AZ<option>AR<option>CA<option>CO<option>CT<option>DE<option>DC<option>FL<option>GA<option>HI<option>ID<option>IL<option>IN<option>IA<option>KS<option>KY<option>LA<option>ME<option>MD<option>MA<option>MI<option>MN<option>MS<option>MO<option>MT<option>NE<option>NV<option>NH<option>NJ<option>NM<option>NY<option>NC<option>ND<option>OH<option>OK<option>OR<option>PA<option>RI<option>SC<option>SD<option>TN<option>TX<option>UT<option>VT<option>VA<option>WA<option>WV<option>WI<option>WY
+
+						</select>
+				    </div>
+				    <span class="control-label col-sm-1 text-muted small-font">Zip:</span>
+				    <div class="col-sm-3" >
+				      <input type="number" class="form-control" id="shipping_zip" required />
+				    </div>
+			  	</div>
+		</div>
+</div>
+
+<!-- .......................Third Panel......................... -->
+<div class="panel panel-primary">
+	<span class="panel-heading">Billing Address</span>
+		<div class="panel-body">
+
+			<div class="form-group">
+
+				<div class="col-sm-2"></div>
+
+				<div class="checkbox col-sm-4">
+					<label><input type="checkbox" id="sameAdd" onclick="sameAddress(this.checked);">Same as Shipping Address</label>
+				</div>
+
+				<div class="checkbox col-sm-4">
+					<label><input type="checkbox" name="chargeCredit">Charge My Credit Card</label>
+				</div>
+
+			  </div>
+
+				<div class="form-group">
+				    <span class="control-label col-sm-2 text-muted small-font">Name</span>
+				    <div class="col-sm-8" >
+				      <input type="text" class="form-control" id="billing_name" placeholder="Enter your name" required/>
+				    </div>
+			  	</div>
+
+			  	<div class="form-group">
+				    <span class="control-label col-sm-2 text-muted small-font">Street: </span>
+				    <div class="col-sm-8" >
+				      <textarea class="form-control" rows="5" id="billing_street" required></textarea>
+				    </div>
+				    <div class="col-sm-2"></div>
+			  	</div>
+
+			  	<div class="form-group">
+				    <span class="control-label col-sm-1 text-muted small-font">City:</span>
+				    <div class="col-sm-3" >
+				      <input type="text" class="form-control" id="billing_city" required />
+				    </div>
+				    <span class="control-label col-sm-1 text-muted small-font">State:</span>
+				    <div class="col-sm-3" >
+				      	<select class="form-control" id="billing_state">
+							<option>AL<option>AK<option>AZ<option>AR<option>CA<option>CO<option>CT<option>DE<option>DC<option>FL<option>GA<option>HI<option>ID<option>IL<option>IN<option>IA<option>KS<option>KY<option>LA<option>ME<option>MD<option>MA<option>MI<option>MN<option>MS<option>MO<option>MT<option>NE<option>NV<option>NH<option>NJ<option>NM<option>NY<option>NC<option>ND<option>OH<option>OK<option>OR<option>PA<option>RI<option>SC<option>SD<option>TN<option>TX<option>UT<option>VT<option>VA<option>WA<option>WV<option>WI<option>WY
+
+						</select>
+				    </div>
+				    <span class="control-label col-sm-1 text-muted small-font">Zip:</span>
+				    <div class="col-sm-3" >
+				      <input type="text" class="form-control" id="billing_zip" required />
+				    </div>
+			  	</div>
+		</div>
+</div>
+
+<!--..................................Fourth Panel............................. -->
+<div class="panel panel-primary credit-card-div">
+	<span class="panel-heading">Credit Card Information</span>
+		<div class="panel-body">
+			    <div class="row ">
+			        <div class="col-md-12">
+			        	<span class="help-block text-muted small-font" >Card Number</span>
+			            <input type="number" class="form-control" placeholder="Enter Card Number" required />
+			        </div>
+			    </div>
+
+			    <div class="row radio small-font">
+			        <div class="col-md-3">
+			            <label><input type="radio" name="optradio" required/>VISA</label>
+			        </div>
+			        <div class="col-md-3">
+			            <label><input type="radio" name="optradio">MASTERCARD</label>
+			        </div>
+			        <div class="col-md-3">
+			            <label><input type="radio" name="optradio">AMERICAN EXPRESS</label>
+			        </div>
+			        <div class="col-md-3">
+			            <label><input type="radio" name="optradio">DISCOVER</label>
+			        </div>
+			    </div>
+
+			    <div class="row ">
+			        <div class="col-md-12 pad-adjust">
+			        	<span class="help-block text-muted small-font">Name</span>
+			            <input type="text" class="form-control" placeholder="Name On The Card" required />
+			        </div>
+			    </div>
+
+			     <div class="row ">
+			        <div class="col-md-3 col-sm-3 col-xs-3">
+			            <span class="help-block text-muted small-font" > Expiry Month</span>
+			            <input type="number" class="form-control" placeholder="MM" min="1" max="12" required />
+			        </div>
+
+			        <div class="col-md-3 col-sm-3 col-xs-3">
+			            <span class="help-block text-muted small-font" >  Expiry Year</span>
+			            <input type="number" class="form-control" placeholder="YY" min="2016" max="2050" required />
+			        </div>
+
+			        <div class="col-md-3 col-sm-3 col-xs-3">
+			            <span class="help-block text-muted small-font" >  CCV</span>
+			            <input type="number" class="form-control" placeholder="CCV" min="100" max="999" required />
+			        </div>
+			    </div>
+	   </div>
+</div>
+
+<!-- .......................Footer................................ -->
+
+	<div class="row footer">
+		<div class="col-md-6 col-sm-6 col-xs-6 pad-adjust">
+		    <input type="reset"  class="btn btn-danger" value="CANCEL ORDER" onclick="return resetForm()" />
+		</div>
+		<div class="col-md-6 col-sm-6 col-xs-6 pad-adjust">
+		    <input type="submit"  class="btn btn-warning btn-block" value="Submit Order"/>
+		</div>
+	</div>
+
+</form>
+
+</body>
+
+<!-- .....................javaScript Core....................... -->
+<script type="text/javascript" src="orderForm.js"></script>
+</html>
